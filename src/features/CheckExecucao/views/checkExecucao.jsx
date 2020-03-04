@@ -4,7 +4,7 @@ import {
   retornaSegundoItem,
   substituirScoreCE,
   filtrarScoresCE
-} from "../checkExecucaoUtils";
+} from "../CheckExecucaoUtils";
 
 export const checkExecucao = props => {
   const scores = filtrarScoresCE(props);

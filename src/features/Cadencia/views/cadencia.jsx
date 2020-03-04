@@ -6,6 +6,7 @@ let estiloTitulo = { fontSize: "1.6rem", fontWeight: 300, color: "#ffffff" };
 
 export const cadencia = props => {
   return (
+    // Grade com a cadência dos checks
     <Grid container align="center">
       <Grid item xs={4}>
         <Typography style={estiloTitulo}>Check Arquitetural</Typography>
@@ -28,6 +29,8 @@ export const cadencia = props => {
     </Grid>
   );
 };
+
+// Retorna a data com a cor de fundo dependendo se a cadência etá correta
 
 const obterDataComFarol = data => {
   let backgroundColor = obterCorBackground(data);

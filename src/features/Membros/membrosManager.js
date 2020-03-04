@@ -15,7 +15,9 @@ const tratarMembros = membrosTSV => {
 
 const membrosParaObjetos = (squads, todosMembros) => {
   return squads.reduce((acumulador, squad) => {
-    var membrosSquad = todosMembros.filter(resposta => resposta.squad.includes(squad.Squad));
+    var membrosSquad = todosMembros.filter(resposta =>
+      resposta.squad.includes(squad.Squad)
+    );
     if (membrosSquad.length) acumulador[squad.Squad] = membrosSquad;
     return acumulador;
   }, {});

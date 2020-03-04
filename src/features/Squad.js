@@ -47,14 +47,14 @@ export const Squad = props => {
               <Cadencia squad={props.squad} />
             </Grid>
 
-            <Grid item xs={6} align="center">
+            {/* <Grid item xs={6} align="center">
               <Typography style={estiloTitulo}>Gemba Check</Typography>
               <GembaCheck squad={props.squad} />
             </Grid>
             <Grid item xs={6} align="center">
               <Typography style={estiloTitulo}>Check de Execução</Typography>
               <CheckExecucao squad={props.squad} />
-            </Grid>
+            </Grid> */}
             <Grid item xs={12} align="center">
               <Typography style={estiloTitulo}>Plano de Ação</Typography>
               <PlanoDeAcao squad={props.squad} />

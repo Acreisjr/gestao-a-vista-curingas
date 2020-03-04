@@ -11,7 +11,9 @@ export const membros = props => {
     <Grid container spacing={2} align="center">
       {props.membros.map(membro => {
         if (props.crafters) {
-          const crafter = props.crafters.find(crafter => crafter.email.includes(membro.login));
+          const crafter = props.crafters.find(crafter =>
+            crafter.email.includes(membro.login)
+          );
           corStatusOneOnOne = corStatus(crafter.meeting, props);
         }
         let avatar = (
@@ -50,7 +52,9 @@ export const membros = props => {
         return (
           <Grid item xs={4} key={membro.login}>
             {avatar}
-            <Typography className={classes.typography}>{membro.nome}</Typography>
+            <Typography className={classes.typography}>
+              {membro.nome}
+            </Typography>
           </Grid>
         );
       })}

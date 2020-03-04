@@ -1,5 +1,14 @@
 import React from "react";
-import { MuiThemeProvider, AppBar, Tabs, Tab, Fab, withStyles, Paper, Typography } from "@material-ui/core";
+import {
+  MuiThemeProvider,
+  AppBar,
+  Tabs,
+  Tab,
+  Fab,
+  withStyles,
+  Paper,
+  Typography
+} from "@material-ui/core";
 import { map } from "lodash";
 import Theme from "./Theme";
 import PauseButton from "@material-ui/icons/Pause";
@@ -8,7 +17,11 @@ import Squad from "./features/Squad";
 import SquadRepo from "./features/SquadRepo";
 import OneOnOneRepo from "./features/OneOnOne";
 import { Okr, OkrRepo } from "./features/Okr";
-import { MembrosRepo, tratarMembros, membrosParaObjetos } from "./features/Membros";
+import {
+  MembrosRepo,
+  tratarMembros,
+  membrosParaObjetos
+} from "./features/Membros";
 
 class App extends React.Component {
   state = {
@@ -23,8 +36,14 @@ class App extends React.Component {
     const todosMembros = tratarMembros(tsvMembros);
     const membrosObjeto = membrosParaObjetos(squads, todosMembros);
     const okrs = await OkrRepo.listarOkrs();
-    this.setState({ squads: squads, membros: membrosObjeto, okrs: okrs, crafters: crafters });
-
+    // atribuindo valores as variaveis de estado do componente
+    this.setState({
+      squads: squads,
+      membros: membrosObjeto,
+      okrs: okrs,
+      crafters: crafters
+    });
+    // Timer de da troca de páginas
     this.timer = setInterval(() => {
       if (this.state.play) {
         const stateIndex = this.state.index + 1;
@@ -32,7 +51,7 @@ class App extends React.Component {
         const newIndex = stateIndex % squadsLengthPlus;
         this.setState({ index: newIndex });
       }
-    }, 30 * 1000);
+    }, 15 * 1000);
   }
 
   handleChange = (e, value) => {
@@ -48,21 +67,41 @@ class App extends React.Component {
 
     return (
       <MuiThemeProvider theme={Theme}>
+        {/* Barra de Navegacao */}
         <AppBar position="static">
-          <Tabs value={index} onChange={this.handleChange} style={{ flexGrow: 1 }}>
+          <Tabs
+            value={index}
+            onChange={this.handleChange}
+            style={{ flexGrow: 1 }}
+          >
             {map(squads, (squad, i) => {
-              return <Tab wrapped key={squad.Squad} label={squad.Squad} value={i} />;
+              return (
+                <Tab wrapped key={squad.Squad} label={squad.Squad} value={i} />
+              );
             })}
-            {okrs && squads && <Tab wrapped key="okr" label="Okrs" value={squads.length} />}
+            {okrs && squads && (
+              <Tab wrapped key="okr" label="Okrs" value={squads.length} />
+            )}
           </Tabs>
-          <Typography variant="overline" style={{ position: "absolute", right: "16px", top: "24px" }}></Typography>
+          <Typography
+            variant="overline"
+            style={{ position: "absolute", right: "16px", top: "24px" }}
+          ></Typography>
         </AppBar>
         {// Só será executado quando o state membros estiver inicializado... Garantindo que a será enviado a props na ordem correta
         this.state.membros &&
           map(squads, (squad, i) => {
             return (
-              <Paper className={classes.pageView} hidden={index !== i} key={squad.Squad}>
-                <Squad squad={squad} crafters={crafters} membros={membros[squad.Squad]} />
+              <Paper
+                className={classes.pageView}
+                hidden={index !== i}
+                key={squad.Squad}
+              >
+                <Squad
+                  squad={squad}
+                  crafters={crafters}
+                  membros={membros[squad.Squad]}
+                />
               </Paper>
             );
           })}
@@ -89,7 +128,11 @@ class App extends React.Component {
           className={classes.fab}
           color="secondary"
         >
-          {this.state.play ? <PauseButton style={{ color: "#ffffff" }} /> : <PlayButton style={{ color: "#ffffff" }} />}
+          {this.state.play ? (
+            <PauseButton style={{ color: "#ffffff" }} />
+          ) : (
+            <PlayButton style={{ color: "#ffffff" }} />
+          )}
         </Fab>
       </MuiThemeProvider>
     );

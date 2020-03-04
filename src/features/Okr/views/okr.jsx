@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Typography, Container } from "@material-ui/core";
 import { map } from "lodash";
 import KeyResult from "./keyResult";
-import { agruparPorObjetivos } from "../okrUtils";
+import { agruparPorObjetivos } from "../OkrUtils";
 
 export const okr = props => {
   const objectives = agruparPorObjetivos(props);

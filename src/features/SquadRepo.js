@@ -1,6 +1,7 @@
 import axios from "axios";
 import moment from "moment";
 
+// Classe para pegar os dados de datas dos ritos
 class SquadRepo {
   async listarSquads() {
     const options = {
@@ -11,10 +12,11 @@ class SquadRepo {
     };
     return axios
       .get(
-        `https://docs.google.com/spreadsheets/d/e/2PACX-1vSpC_x6FOQi7QOG4-gFFZzgIp_BCHZEKLHy8PoJpA9twqOAsRVMUerK9BEhglaI92K58qjW4DOFFkMC/pub?gid=766563780&single=true&output=tsv`,
+        `https://dtidigital-my.sharepoint.com/personal/alberto_junior_dtidigital_com_br/_layouts/15/download.aspx?SourceUrl=%2Fpersonal%2Falberto%5Fjunior%5Fdtidigital%5Fcom%5Fbr%2FDocuments%2Fritos%2Dgaroa%2Etsv`,
         options
       )
       .then(response => {
+        debugger;
         var lines = response.data.split("\r\n");
 
         var result = [];
