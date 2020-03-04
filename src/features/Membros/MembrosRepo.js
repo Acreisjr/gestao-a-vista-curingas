@@ -10,7 +10,7 @@ class MembrosRepo {
         }
       };
       const tsvMembros = await axios.get(
-        `https://docs.google.com/spreadsheets/d/e/2PACX-1vSpC_x6FOQi7QOG4-gFFZzgIp_BCHZEKLHy8PoJpA9twqOAsRVMUerK9BEhglaI92K58qjW4DOFFkMC/pub?gid=1877599560&single=true&output=tsv`,
+        `https://docs.google.com/spreadsheets/d/e/2PACX-1vQwqLrX5-hWVMBPKXcxnt6pM6u9W2-UWh9cvflG0GYOhkX-UoZnPevrR3DLSDwflJqvfVdIpND-vXyk/pub?output=tsv`,
         options
       );
       return tsvMembros;

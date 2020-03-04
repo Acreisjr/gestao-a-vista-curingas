@@ -23,7 +23,7 @@ export const membros = props => {
               border: `8px solid ${corStatusOneOnOne}`,
               backgroundColor: corStatusOneOnOne
             }}
-            src={`./images/fotos/${membro.login}.JPG`}
+            src={`./images/fotos/${membro.login}.PNG`}
           />
         );
         if (membro.plano) {

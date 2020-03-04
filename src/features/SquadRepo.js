@@ -12,7 +12,7 @@ class SquadRepo {
     };
     return axios
       .get(
-        `https://dtidigital-my.sharepoint.com/personal/alberto_junior_dtidigital_com_br/_layouts/15/download.aspx?SourceUrl=%2Fpersonal%2Falberto%5Fjunior%5Fdtidigital%5Fcom%5Fbr%2FDocuments%2Fritos%2Dgaroa%2Etsv`,
+        `https://docs.google.com/spreadsheets/d/e/2PACX-1vQjGoFas8fHS3-ikJ36ZGi4vsgFYVGSDwqm0Nvj_Fuz5J0tuIajrzTB0jhdohG4S_lrDzFaycoA0Bbs/pub?output=tsv`,
         options
       )
       .then(response => {

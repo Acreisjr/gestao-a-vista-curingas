@@ -13,8 +13,8 @@ export const Squad = props => {
     <div
       style={{
         // Scroll ativo
-        width: "auto",
-        height: "auto",
+        width: "100%",
+        height: "100%",
         backgroundImage: `url(${props.squad.Cover})`,
         backgroundSize: "cover",
         overflow: "hidden"
